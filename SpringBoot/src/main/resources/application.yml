@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: SpringBoot
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #配置数据源类型
+    type: com.zaxxer.hikari.HikariDataSource
+    name: defaultDataSource
+    url: jdbc:mysql://localhost:3306/vuedemo?serverTimezone=GMT%2b8
+    username: root
+    password: 1234
+
+#MyBatis-Plus相关配置
+mybatis-plus:
+  configuration:
+    #配置日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
