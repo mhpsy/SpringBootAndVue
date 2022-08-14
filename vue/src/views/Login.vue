@@ -23,6 +23,7 @@ import {ref, reactive, getCurrentInstance} from "vue";
 import {User, Lock} from "@element-plus/icons-vue"
 import {ElMessage, ElNotification} from "element-plus";
 import request from "../request.js";
+import router from "../router";
 
 const {proxy} = getCurrentInstance()
 
@@ -45,11 +46,12 @@ const login = () => {
     if(valid){
       request.post('/user/login',LoginUser).then(res =>{
         console.log(res)
-        if(res.isDelete === 0){ //成功
+        if(res.isDelete === 0){ //成功 这里只是判断了删除的逻辑
           ElNotification({
             type: 'success',
             message: '登录成功'
           })
+          router.replace('/')
         }else {
           ElNotification({  //失败
             type: 'error',
